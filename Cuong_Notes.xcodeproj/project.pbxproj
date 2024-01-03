@@ -19,6 +19,10 @@
 		FA71DD542B44FAF9001AF3A4 /* Cuong_NotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD532B44FAF9001AF3A4 /* Cuong_NotesUITestsLaunchTests.swift */; };
 		FA8AACE72B44FD4000194106 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8AACE62B44FD3F00194106 /* GoogleService-Info.plist */; };
 		FA8AACE92B4501E600194106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8AACE82B4501E600194106 /* AppDelegate.swift */; };
+		FACBC0E22B453B39003E5BF2 /* UserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0E12B453B39003E5BF2 /* UserNameView.swift */; };
+		FACBC0E42B453B40003E5BF2 /* UserNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0E32B453B40003E5BF2 /* UserNameViewModel.swift */; };
+		FACBC0E72B453D1B003E5BF2 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0E62B453D1B003E5BF2 /* Color+Ext.swift */; };
+		FACBC0E92B453DE6003E5BF2 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0E82B453DE6003E5BF2 /* View+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		FA71DD532B44FAF9001AF3A4 /* Cuong_NotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuong_NotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA8AACE62B44FD3F00194106 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA8AACE82B4501E600194106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FACBC0E12B453B39003E5BF2 /* UserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameView.swift; sourceTree = "<group>"; };
+		FACBC0E32B453B40003E5BF2 /* UserNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewModel.swift; sourceTree = "<group>"; };
+		FACBC0E62B453D1B003E5BF2 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		FACBC0E82B453DE6003E5BF2 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +147,8 @@
 		FA71DD342B44FAF8001AF3A4 /* Cuong_Notes */ = {
 			isa = PBXGroup;
 			children = (
+				FACBC0E52B453D0C003E5BF2 /* Extension */,
+				FACBC0E02B4537AC003E5BF2 /* UserName */,
 				FA8AACE62B44FD3F00194106 /* GoogleService-Info.plist */,
 				FA8AACE82B4501E600194106 /* AppDelegate.swift */,
 				FA71DD352B44FAF8001AF3A4 /* Cuong_NotesApp.swift */,
@@ -173,6 +183,24 @@
 				FA71DD532B44FAF9001AF3A4 /* Cuong_NotesUITestsLaunchTests.swift */,
 			);
 			path = Cuong_NotesUITests;
+			sourceTree = "<group>";
+		};
+		FACBC0E02B4537AC003E5BF2 /* UserName */ = {
+			isa = PBXGroup;
+			children = (
+				FACBC0E12B453B39003E5BF2 /* UserNameView.swift */,
+				FACBC0E32B453B40003E5BF2 /* UserNameViewModel.swift */,
+			);
+			path = UserName;
+			sourceTree = "<group>";
+		};
+		FACBC0E52B453D0C003E5BF2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FACBC0E62B453D1B003E5BF2 /* Color+Ext.swift */,
+				FACBC0E82B453DE6003E5BF2 /* View+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,9 +442,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACBC0E92B453DE6003E5BF2 /* View+Ext.swift in Sources */,
+				FACBC0E42B453B40003E5BF2 /* UserNameViewModel.swift in Sources */,
+				FACBC0E22B453B39003E5BF2 /* UserNameView.swift in Sources */,
 				FA8AACE92B4501E600194106 /* AppDelegate.swift in Sources */,
 				FA71DD382B44FAF8001AF3A4 /* ContentView.swift in Sources */,
 				FA71DD362B44FAF8001AF3A4 /* Cuong_NotesApp.swift in Sources */,
+				FACBC0E72B453D1B003E5BF2 /* Color+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

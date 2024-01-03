@@ -9,13 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            ZStack {
+                Color.ui.background
+                    .ignoresSafeArea()
+                VStack {
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                    Text("Hello, world!")
+                        .border(Color.gray)
+                        .frame(width: 100)
+                        
+                }
+                .background(Color.red)
+                .padding()
+                .navigationTitle("Notes")
+                .toolbar {
+                    ToolbarItem() {
+                        Button(action: {
+                            
+                        }) {
+                            Image("people_white")
+                        }
+                    }
+                }
+            }
+            
+            
         }
-        .padding()
+        
     }
 }
 
@@ -24,3 +47,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
