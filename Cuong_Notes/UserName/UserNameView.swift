@@ -10,6 +10,7 @@ import SwiftUI
 import UIKit
 
 struct UserNameView: View {
+    @StateObject var viewModel = UserNameViewModel(registerUserUseCase: DefaultRegisterUserUseCase(userReposity: FirebaseUserReposity()))
     
     @State var name: String = ""
     
@@ -44,6 +45,7 @@ struct UserNameView: View {
     private func startButton() -> some View {
         Button("Start!!!") {
             hideKeyboard()
+            viewModel.registerUser(with: name)
         }
         .frame(width: 80, height: 40)
         .fontWeight(.bold)
