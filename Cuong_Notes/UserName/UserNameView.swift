@@ -10,22 +10,41 @@ import SwiftUI
 import UIKit
 
 struct UserNameView: View {
-    @StateObject var viewModel = UserNameViewModel(registerUserUseCase: DefaultRegisterUserUseCase(userReposity: FirebaseUserReposity()))
+    @StateObject var viewModel = UserNameViewModel(getUserInfoUseCase: DefaultGetUserInfoUseCase(userReposity: FirebaseUserReposity()), registerUserUseCase: DefaultRegisterUserUseCase(userReposity: FirebaseUserReposity()))
+    @EnvironmentObject var appState: AppState
     
-    @State var name: String = ""
+    @State private var name: String = ""
+    @State private var shouldShowInput: Bool = false
     
     var body: some View {
         
         ZStack {
             Color.ui.background
                 .ignoresSafeArea()
-            
             VStack {
                 Text("Notes App")
                     .font(.system(size: 30, weight: .bold, design: .serif))
                     .foregroundColor(.white)
-                nameTextField()
-                startButton()
+                Image("image_search")
+                if shouldShowInput {
+                    nameTextField()
+                    startButton()
+                } else {
+                    ActivityIndicatorView()
+                }
+            }
+        }
+        .onAppear {
+            viewModel.onAppear()
+        }
+        .onReceive(viewModel.onShowUserNameInputSubject, perform: { shouldShowInput in
+            withAnimation {
+                self.shouldShowInput = shouldShowInput
+            }
+        })
+        .onReceive(viewModel.onMoveToNoteSubject) { _ in
+            withAnimation(.linear(duration: 1)) {
+                self.appState.appRoot = .note
             }
         }
     }
@@ -39,6 +58,7 @@ struct UserNameView: View {
             .foregroundColor(.black)
             .background(Color.white.opacity(0.2))
             .padding(24)
+            .colorScheme(.light)
     }
     
     @ViewBuilder
@@ -47,11 +67,11 @@ struct UserNameView: View {
             hideKeyboard()
             viewModel.registerUser(with: name)
         }
-        .frame(width: 80, height: 40)
+        .frame(width: 160, height: 40)
         .fontWeight(.bold)
-        .background(Color.blue.opacity(name.isEmpty ? 0.3 : 0.7))
+        .background(Color.blue.opacity(name.isEmpty ? 0.5 : 0.7))
         .foregroundColor(name.isEmpty ? Color.gray : Color.white)
-        .cornerRadius(20)
+        .cornerRadius(8)
         .disabled(name.isEmpty)
     }
 }

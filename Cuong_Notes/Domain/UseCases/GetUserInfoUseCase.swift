@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GetUserInfoUseCase {
-    func execute(requestValue: String) -> Future<UserModel?, Error>
+    func execute() -> Future<UserModel?, Error>
 }
 
 class DefaultGetUserInfoUseCase: GetUserInfoUseCase {
@@ -20,7 +20,7 @@ class DefaultGetUserInfoUseCase: GetUserInfoUseCase {
         self.userReposity = userReposity
     }
     
-    func execute(requestValue: String) -> Future<UserModel?, Error> {
-        return userReposity.getUserInfo(with: requestValue)
+    func execute() -> Future<UserModel?, Error> {
+        return userReposity.getUserInfo()
     }
 }

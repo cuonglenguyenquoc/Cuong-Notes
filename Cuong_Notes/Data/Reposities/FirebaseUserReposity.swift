@@ -10,7 +10,7 @@ import Combine
 
 class FirebaseUserReposity: UserReposity {
     
-    func getUserInfo(with id: String) -> Future<UserModel?, Error> {
+    func getUserInfo() -> Future<UserModel?, Error> {
         Future<UserModel?, Error> { promise in
             UserFirebaseEndpoint
                 .getCurrentUserInfo

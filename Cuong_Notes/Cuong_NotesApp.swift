@@ -9,8 +9,10 @@ import SwiftUI
 
 @main
 struct Cuong_NotesApp: App {
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    private let getUserInfoUseCase: GetUserInfoUseCase
+    
+    @StateObject var appState = AppState()
     
     init() {
         FirebaseDatabaseManager.shared.configure()
@@ -19,14 +21,23 @@ struct Cuong_NotesApp: App {
 
         //Use this if NavigationBarTitle is with displayMode = .inline
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-        getUserInfoUseCase = DefaultGetUserInfoUseCase(userReposity: FirebaseUserReposity())
-        
-        
     }
     
     var body: some Scene {
         WindowGroup {
+            rootView
+                .preferredColorScheme(.dark)
+                .environmentObject(appState)
+        }
+    }
+    
+    @ViewBuilder
+    private var rootView: some View {
+        switch appState.appRoot {
+        case .register:
             UserNameView()
+        case .note:
+            UserListNodeView()
         }
     }
 }
