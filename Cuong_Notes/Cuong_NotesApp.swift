@@ -36,8 +36,8 @@ struct Cuong_NotesApp: App {
         switch appState.appRoot {
         case .register:
             UserNameView()
-        case .note:
-            UserListNodeView()
+        case .note(let userModel):
+            UserListNodeView(userModel: userModel)
         }
     }
 }

@@ -14,13 +14,13 @@ protocol RegisterUserUseCase {
 
 class DefaultRegisterUserUseCase: RegisterUserUseCase {
     
-    private let userReposity: UserReposity
+    private let userRepository: UserRepository
     
-    init(userReposity: UserReposity) {
-        self.userReposity = userReposity
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
     }
     
     func execute(requestValue: String) -> Future<UserModel, Error> {
-        return userReposity.registerNewUser(with: requestValue)
+        return userRepository.registerNewUser(with: requestValue)
     }
 }

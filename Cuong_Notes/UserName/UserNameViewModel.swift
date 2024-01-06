@@ -11,7 +11,7 @@ import Combine
 protocol UserNameViewModelOutput {
     var onShowUserNameInputSubject: PassthroughSubject<Bool, Never> { get }
     var onRegisterErrorSubject: PassthroughSubject<Void, Never> { get }
-    var onMoveToNoteSubject: PassthroughSubject<Void, Never> { get }
+    var onMoveToNoteSubject: PassthroughSubject<UserModel, Never> { get }
 }
 
 protocol UserNameViewModelInput {
@@ -25,7 +25,7 @@ class UserNameViewModel: ObservableObject, UserNameViewModelInput, UserNameViewM
     
     var onRegisterErrorSubject: PassthroughSubject<Void, Never> = .init()
     
-    var onMoveToNoteSubject: PassthroughSubject<Void, Never> = .init()
+    var onMoveToNoteSubject: PassthroughSubject<UserModel, Never> = .init()
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -47,7 +47,7 @@ class UserNameViewModel: ObservableObject, UserNameViewModelInput, UserNameViewM
             } receiveValue: { [weak self] userModel in
                 if let userModel = userModel {
                     self?.onShowUserNameInputSubject.send(false)
-                    self?.onMoveToNoteSubject.send(())
+                    self?.onMoveToNoteSubject.send((userModel))
                 } else {
                     self?.onShowUserNameInputSubject.send(true)
                 }
@@ -63,7 +63,7 @@ class UserNameViewModel: ObservableObject, UserNameViewModelInput, UserNameViewM
                     self?.onRegisterErrorSubject.send(())
                 }
             } receiveValue: { [weak self] userModel in
-                self?.onMoveToNoteSubject.send(())
+                self?.onMoveToNoteSubject.send(userModel)
             }
             .store(in: &subscriptions)
     }

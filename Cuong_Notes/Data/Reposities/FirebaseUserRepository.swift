@@ -1,5 +1,5 @@
 //
-//  FirebaseUserReposity.swift
+//  FirebaseUserRepository.swift
 //  Cuong_Notes
 //
 //  Created by Macbook on 04/01/2024.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class FirebaseUserReposity: UserReposity {
+class FirebaseUserRepository: UserRepository {
     
     func getUserInfo() -> Future<UserModel?, Error> {
         Future<UserModel?, Error> { promise in

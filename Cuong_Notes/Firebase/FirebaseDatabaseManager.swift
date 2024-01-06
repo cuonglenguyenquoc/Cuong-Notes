@@ -12,6 +12,7 @@ import FirebaseDatabase
 enum FirebaseError: Error {
     case encodingError
     case decodingError
+    case other
 }
 
 // TODO: - Add query support

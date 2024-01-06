@@ -25,5 +25,4 @@ enum UserFirebaseEndpoint: FirebaseDatabaseEndpoint {
     var synced: Bool {
         return true
     }
-    
 }

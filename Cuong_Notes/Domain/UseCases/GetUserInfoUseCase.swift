@@ -14,13 +14,13 @@ protocol GetUserInfoUseCase {
 
 class DefaultGetUserInfoUseCase: GetUserInfoUseCase {
     
-    private let userReposity: UserReposity
+    private let userRepository: UserRepository
     
-    init(userReposity: UserReposity) {
-        self.userReposity = userReposity
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
     }
     
     func execute() -> Future<UserModel?, Error> {
-        return userReposity.getUserInfo()
+        return userRepository.getUserInfo()
     }
 }

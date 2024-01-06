@@ -15,5 +15,5 @@ class AppState: ObservableObject {
 
 enum AppRoot {
     case register
-    case note
+    case note(UserModel)
 }

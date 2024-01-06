@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 struct UserNameView: View {
-    @StateObject var viewModel = UserNameViewModel(getUserInfoUseCase: DefaultGetUserInfoUseCase(userReposity: FirebaseUserReposity()), registerUserUseCase: DefaultRegisterUserUseCase(userReposity: FirebaseUserReposity()))
+    @StateObject var viewModel = UserNameViewModel(getUserInfoUseCase: DefaultGetUserInfoUseCase(userRepository: FirebaseUserRepository()), registerUserUseCase: DefaultRegisterUserUseCase(userRepository: FirebaseUserRepository()))
     @EnvironmentObject var appState: AppState
     
     @State private var name: String = ""
@@ -42,10 +42,8 @@ struct UserNameView: View {
                 self.shouldShowInput = shouldShowInput
             }
         })
-        .onReceive(viewModel.onMoveToNoteSubject) { _ in
-            withAnimation(.linear(duration: 1)) {
-                self.appState.appRoot = .note
-            }
+        .onReceive(viewModel.onMoveToNoteSubject) { userModel in
+            self.appState.appRoot = .note(userModel)
         }
     }
     
