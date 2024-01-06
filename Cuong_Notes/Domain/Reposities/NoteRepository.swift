@@ -10,5 +10,5 @@ import Combine
 
 protocol NoteRepository {
     func getNotesList() -> Future<[NoteModel], Error>
-    func addNewNote(with note: String) -> Future<NoteModel, Error>
+    func addNewNote(with title: String, note: String) -> Future<NoteModel, Error>
 }

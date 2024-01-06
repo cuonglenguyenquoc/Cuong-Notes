@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol AddNewNoteUseCase {
-    func execute(requestValue: String) -> Future<NoteModel, Error>
+    func execute(title: String, note: String) -> Future<NoteModel, Error>
 }
 
 class DefaultAddNewNoteUseCase: AddNewNoteUseCase {
@@ -20,7 +20,7 @@ class DefaultAddNewNoteUseCase: AddNewNoteUseCase {
         self.noteRepository = noteRepository
     }
     
-    func execute(requestValue: String) -> Future<NoteModel, Error> {
-        return noteRepository.addNewNote(with: requestValue)
+    func execute(title: String, note: String) -> Future<NoteModel, Error> {
+        return noteRepository.addNewNote(with: title, note: note)
     }
 }

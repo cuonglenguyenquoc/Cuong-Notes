@@ -44,6 +44,8 @@
 		FAEFFDC62B47F0370060F6FD /* AddNewNoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC52B47F0370060F6FD /* AddNewNoteUseCase.swift */; };
 		FAEFFDC82B47F1120060F6FD /* GetNotesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC72B47F1120060F6FD /* GetNotesListUseCase.swift */; };
 		FAEFFDCA2B47F1490060F6FD /* UserListNodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC92B47F1490060F6FD /* UserListNodeViewModel.swift */; };
+		FAEFFDCD2B4906C30060F6FD /* NoteCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */; };
+		FAEFFDCF2B4906CD0060F6FD /* NoteCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 		FAEFFDC52B47F0370060F6FD /* AddNewNoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewNoteUseCase.swift; sourceTree = "<group>"; };
 		FAEFFDC72B47F1120060F6FD /* GetNotesListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNotesListUseCase.swift; sourceTree = "<group>"; };
 		FAEFFDC92B47F1490060F6FD /* UserListNodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListNodeViewModel.swift; sourceTree = "<group>"; };
+		FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatorView.swift; sourceTree = "<group>"; };
+		FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatorViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,7 @@
 				FACBC0E52B453D0C003E5BF2 /* Extension */,
 				FA6C725F2B469BAA00FF1BE2 /* Components */,
 				FACBC0E02B4537AC003E5BF2 /* UserName */,
+				FAEFFDCB2B4906840060F6FD /* NoteCreator */,
 				FA6C725C2B467B6B00FF1BE2 /* UserListNode */,
 				FA8AACE82B4501E600194106 /* AppDelegate.swift */,
 				FA71DD352B44FAF8001AF3A4 /* Cuong_NotesApp.swift */,
@@ -354,6 +359,15 @@
 				FACBC0FD2B4568DB003E5BF2 /* FirebaseDatabaseEndpoint.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		FAEFFDCB2B4906840060F6FD /* NoteCreator */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */,
+				FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */,
+			);
+			path = NoteCreator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -610,6 +624,7 @@
 				FA6C726A2B46ABD100FF1BE2 /* AppState.swift in Sources */,
 				FACBC0E22B453B39003E5BF2 /* UserNameView.swift in Sources */,
 				FA8AACE92B4501E600194106 /* AppDelegate.swift in Sources */,
+				FAEFFDCF2B4906CD0060F6FD /* NoteCreatorViewModel.swift in Sources */,
 				FACBC1062B459E95003E5BF2 /* NSArray+Ext.swift in Sources */,
 				FAEFFDC42B47EBEF0060F6FD /* NoteFirebaseEndpoint.swift in Sources */,
 				FA6C72612B469BC000FF1BE2 /* ActivityIndicatorView.swift in Sources */,
@@ -620,6 +635,7 @@
 				FA6C725A2B4668E000FF1BE2 /* RegisterUserUseCase.swift in Sources */,
 				FA71DD362B44FAF8001AF3A4 /* Cuong_NotesApp.swift in Sources */,
 				FACBC0F72B455541003E5BF2 /* UserModel.swift in Sources */,
+				FAEFFDCD2B4906C30060F6FD /* NoteCreatorView.swift in Sources */,
 				FACBC0E72B453D1B003E5BF2 /* Color+Ext.swift in Sources */,
 				FAEFFDC22B47EBB40060F6FD /* FirebaseNoteRepository.swift in Sources */,
 				FACBC0FC2B456845003E5BF2 /* FirebaseDatabaseManager.swift in Sources */,

@@ -34,7 +34,7 @@ class FirebaseNoteRepository: NoteRepository {
         }
     }
     
-    func addNewNote(with note: String) -> Future<NoteModel, Error> {
+    func addNewNote(with title: String, note: String) -> Future<NoteModel, Error> {
         
         Future<NoteModel, Error> { [weak self] promise in
             guard let self = self else {
@@ -42,9 +42,9 @@ class FirebaseNoteRepository: NoteRepository {
                 return
             }
             let now = Date().timeIntervalSince1970
-            let noteModel = NoteModel(id: UUID().uuidString, text: note, timeStamp: now)
+            let noteModel = NoteModel(id: UUID().uuidString, title: title, text: note, timeStamp: now)
             NoteFirebaseEndpoint
-                .addNewNote(userId: userModel.id)
+                .addNewNote(userId: userModel.id, noteId: noteModel.id)
                 .post(data: noteModel) { (result: Result<NoteModel, Error>) in
                     switch result {
                     case .success(let noteModel):

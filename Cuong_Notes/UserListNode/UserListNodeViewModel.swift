@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol UserListNodeViewModelOutput {
-    var notesSubject: PassthroughSubject<[NoteModel], Never> { get }
+    var notesSubject: CurrentValueSubject<[NoteModel], Never> { get }
     var viewStateSubject: CurrentValueSubject<UserListNodeViewModel.ViewState, Never> { get }
     
 }
@@ -22,7 +22,7 @@ protocol UserListNodeViewModelInput {
 class UserListNodeViewModel: ObservableObject, UserListNodeViewModelInput, UserListNodeViewModelOutput {
     
     // MARK: - Outputs
-    var notesSubject: PassthroughSubject<[NoteModel], Never> = .init()
+    var notesSubject: CurrentValueSubject<[NoteModel], Never> = .init([])
     
     var viewStateSubject: CurrentValueSubject<ViewState, Never> = .init(.fetching)
     

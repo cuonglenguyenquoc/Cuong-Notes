@@ -10,14 +10,14 @@ import UIKit
 
 enum NoteFirebaseEndpoint: FirebaseDatabaseEndpoint {
     
-    case addNewNote(userId: String)
+    case addNewNote(userId: String, noteId: String)
     case getNotesList(userId: String)
     
     
     var path: String {
         switch self {
-        case .addNewNote(let userId):
-            return "users/\(userId)"
+        case .addNewNote(let userId, let noteId):
+            return "users/\(userId)/notes/\(noteId)"
         case .getNotesList(let userId):
             return "users/\(userId)/notes"
         }

@@ -25,7 +25,11 @@ struct UserNameView: View {
                 Text("Notes App")
                     .font(.system(size: 30, weight: .bold, design: .serif))
                     .foregroundColor(.white)
-                Image("image_search")
+                Image("image_notebook")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200, alignment: .center)
+                    
                 if shouldShowInput {
                     nameTextField()
                     startButton()
