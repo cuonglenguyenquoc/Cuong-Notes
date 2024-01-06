@@ -15,9 +15,11 @@ struct NoteCreatorView: View {
     @State private var note: String = ""
     @State private var isShowingError: Bool = false
     private var userModel: UserModel
+    private var addNoteSuccessHandler: (()->())?
     
-    init(userModel: UserModel) {
+    init(userModel: UserModel, addNoteSuccessHandler: (()->())?) {
         self.userModel = userModel
+        self.addNoteSuccessHandler = addNoteSuccessHandler
         let repository = FirebaseNoteRepository(userModel: userModel)
         let useCase = DefaultAddNewNoteUseCase(noteRepository: repository)
         self._viewModel = StateObject(wrappedValue: NoteCreatorViewModel(addNewNoteUseCase: useCase))
@@ -92,6 +94,6 @@ struct NoteCreatorView: View {
 
 struct NoteCreatorView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteCreatorView(userModel: UserModel(id: "", userName: ""))
+        NoteCreatorView(userModel: UserModel(id: "", userName: ""), addNoteSuccessHandler: nil)
     }
 }

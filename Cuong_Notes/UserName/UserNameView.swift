@@ -14,7 +14,6 @@ struct UserNameView: View {
     @EnvironmentObject var appState: AppState
     
     @State private var name: String = ""
-    @State private var shouldShowInput: Bool = false
     
     var body: some View {
         
@@ -30,7 +29,7 @@ struct UserNameView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200, alignment: .center)
                     
-                if shouldShowInput {
+                if viewModel.shouldShowInputField {
                     nameTextField()
                     startButton()
                 } else {
@@ -41,11 +40,6 @@ struct UserNameView: View {
         .onAppear {
             viewModel.onAppear()
         }
-        .onReceive(viewModel.onShowUserNameInputSubject, perform: { shouldShowInput in
-            withAnimation {
-                self.shouldShowInput = shouldShowInput
-            }
-        })
         .onReceive(viewModel.onMoveToNoteSubject) { userModel in
             self.appState.appRoot = .note(userModel)
         }

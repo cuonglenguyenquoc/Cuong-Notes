@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol UserNameViewModelOutput {
-    var onShowUserNameInputSubject: PassthroughSubject<Bool, Never> { get }
+    var shouldShowInputField: Bool { get }
     var onRegisterErrorSubject: PassthroughSubject<Void, Never> { get }
     var onMoveToNoteSubject: PassthroughSubject<UserModel, Never> { get }
 }
@@ -21,7 +21,8 @@ protocol UserNameViewModelInput {
 
 class UserNameViewModel: ObservableObject, UserNameViewModelInput, UserNameViewModelOutput {
     
-    var onShowUserNameInputSubject: PassthroughSubject<Bool, Never> = .init()
+    @Published
+    var shouldShowInputField: Bool = false
     
     var onRegisterErrorSubject: PassthroughSubject<Void, Never> = .init()
     
@@ -40,16 +41,17 @@ class UserNameViewModel: ObservableObject, UserNameViewModelInput, UserNameViewM
     func onAppear() {
         getUserInfoUseCase
             .execute()
+            .delay(for: 1, scheduler: RunLoop.main)
             .sink { [weak self] completion in
                 if case .failure(_) = completion {
-                    self?.onShowUserNameInputSubject.send(true)
+                    self?.shouldShowInputField = true
                 }
             } receiveValue: { [weak self] userModel in
                 if let userModel = userModel {
-                    self?.onShowUserNameInputSubject.send(false)
+                    self?.shouldShowInputField = false
                     self?.onMoveToNoteSubject.send((userModel))
                 } else {
-                    self?.onShowUserNameInputSubject.send(true)
+                    self?.shouldShowInputField = true
                 }
             }
             .store(in: &subscriptions)

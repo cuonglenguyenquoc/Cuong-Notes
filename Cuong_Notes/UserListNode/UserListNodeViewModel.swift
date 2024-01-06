@@ -9,22 +9,24 @@ import Foundation
 import Combine
 
 protocol UserListNodeViewModelOutput {
-    var notesSubject: CurrentValueSubject<[NoteModel], Never> { get }
-    var viewStateSubject: CurrentValueSubject<UserListNodeViewModel.ViewState, Never> { get }
+    var noteModels: [NoteModel] { get }
+    var viewState: UserListNodeViewModel.ViewState { get }
     
 }
 
 protocol UserListNodeViewModelInput {
     func onAppear()
-    func addNewNoteButtonTapped()
+    func refresh()
 }
 
 class UserListNodeViewModel: ObservableObject, UserListNodeViewModelInput, UserListNodeViewModelOutput {
     
     // MARK: - Outputs
-    var notesSubject: CurrentValueSubject<[NoteModel], Never> = .init([])
+    @Published
+    var noteModels: [NoteModel] = []
     
-    var viewStateSubject: CurrentValueSubject<ViewState, Never> = .init(.fetching)
+    @Published
+    var viewState: ViewState = .fetching
     
     // MARK: - Instance Variables
     private var subscriptions = Set<AnyCancellable>()
@@ -36,20 +38,24 @@ class UserListNodeViewModel: ObservableObject, UserListNodeViewModelInput, UserL
         self.getNotesListUseCase = getNotesListUseCase
     }
     
-    // MARK: - Inputs
-    func onAppear() {
+    private func fetchNotesList() {
         getNotesListUseCase
             .execute()
             .replaceError(with: [])
             .sink(receiveValue: { [weak self] noteModels in
-                self?.viewStateSubject.send(.finished)
-                self?.notesSubject.send(noteModels)
+                self?.viewState = .finished
+                self?.noteModels = noteModels
             })
             .store(in: &subscriptions)
     }
     
-    func addNewNoteButtonTapped() {
-        
+    // MARK: - Inputs
+    func onAppear() {
+        fetchNotesList()
+    }
+    
+    func refresh() {
+        fetchNotesList()
     }
 }
 

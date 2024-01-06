@@ -10,8 +10,6 @@ import SwiftUI
 
 struct UserListNodeView: View {
     @StateObject var viewModel: UserListNodeViewModel
-    @State private var viewState: UserListNodeViewModel.ViewState = .fetching
-    @State private var isShowingNoteCreatorView = false
     private var userModel: UserModel
     
     init(userModel: UserModel) {
@@ -25,10 +23,10 @@ struct UserListNodeView: View {
             ZStack {
                 Color.ui.background
                     .ignoresSafeArea()
-                if viewState == .fetching {
+                if viewModel.viewState == .fetching {
                     ActivityIndicatorView()
                 } else {
-                    if viewModel.notesSubject.value.isEmpty {
+                    if viewModel.noteModels.isEmpty {
                         VStack {
                             Image("image_search")
                             Text("Create your first note!")
@@ -36,9 +34,12 @@ struct UserListNodeView: View {
                                 .foregroundColor(Color.white)
                         }
                     } else {
-                        ForEach(viewModel.notesSubject.value, content: { noteModel in
-                            return Text(noteModel.title)
-                        })
+                        List(viewModel.noteModels) { noteModel in
+                            return NoteRow(noteModel: noteModel)
+                        }
+                        .lineSpacing(16)
+                        .frame(maxWidth: .infinity)
+                        .listStyle(GroupedListStyle())
                     }
                 }
                 
@@ -60,7 +61,6 @@ struct UserListNodeView: View {
             .onAppear {
                 viewModel.onAppear()
             }
-            .onReceive(viewModel.viewStateSubject) { self.viewState = $0 }
         }
     }
     
@@ -71,7 +71,7 @@ struct UserListNodeView: View {
             
             HStack(spacing: 0) {
                 Spacer()
-                NavigationLink(destination: NoteCreatorView(userModel: userModel)) {
+                NavigationLink(destination: NoteCreatorView(userModel: userModel, addNoteSuccessHandler: addNoteSuccessHandler)) {
                     Image(systemName: "plus")
                         .resizable()
                         .padding()
@@ -84,6 +84,12 @@ struct UserListNodeView: View {
             }
         }
     }
+    
+    private var addNoteSuccessHandler: (()->())? {
+        return { 
+            self.viewModel.refresh()
+        }
+    }
 }
 
 struct UserListNodeView_Previews: PreviewProvider {
@@ -92,3 +98,25 @@ struct UserListNodeView_Previews: PreviewProvider {
     }
 }
 
+
+struct NoteRow : View {
+    var noteModel: NoteModel
+    var body: some View {
+        
+        VStack(alignment: .leading) {
+            Text(Date(timeIntervalSince1970: noteModel.timeStamp).toString())
+                .font(.headline)
+            Text(noteModel.title)
+                .font(.title)
+                .fontWeight(.bold)
+            Text(noteModel.text)
+                .font(.body)
+                .fontWeight(.regular)
+            }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .foregroundColor(.black)
+        .padding(16)
+        .background(Color(hex: noteModel.color))
+        .cornerRadius(16)
+    }
+}
