@@ -20,11 +20,17 @@ The application utilizes Firebase Realtime Database to synchronize notes in real
 * **FirebaseDatabaseEndpoint** The endpoint provides information such as the path and the synced data flag for operations.
 
 ## Timeline ⌛️
-I actually spent most of my time studying SwiftUI, because I had never used it in my projects before. It is therefore difficult to give an exact timeline for each aspect of the application, but I can give a timeline as below **(10points in 5 working days)**:
-* **(5 points)Learning:** About SwiftUI, Combine, Firebase (face new problems in those and find ways to resolve it).
-* **(0.5 point)Setup project**
-* **(4 points)Doing tasks and write UnitTest:** Excluding "As a user I can see all the notes from other users".
-* **(0.5 point)Write Readme file** 
+I actually spent most of my time studying SwiftUI, because I had never used it in my projects before. It is therefore difficult to give an exact timeline for each aspect of the application, but I can give a timeline as below **(10 points in 5 working days)**:
+* **(5 points)** Learning: About SwiftUI, Combine, Firebase (face new problems in those and find ways to resolve it).
+* **(0.5 point)** Setup project
+* **(4 points)** Doing tasks and write UnitTest: Excluding "As a user I can see all the notes from other users".
+* **(0.5 point)**  Write Readme file
+
+## Limitations
+
+* User Identification: Because this application does not require users to login, so I used **UIDevice.current.identifierForVendor.uuidString** to identify users. The problem is that this value can be changed, according to the Apple documentation "The value changes when the user deletes all of that vendor’s apps from the device and subsequently reinstalls one or more of them. The value can also change when installing test builds using Xcode or when installing an app on a device using ad-hoc distribution"
+* Firebase Database Security: As mentioned above, it doesn't require users login, so it's hard to set the right security rules for Firebase Database at this time. I don't take the time to dig into how to set a good rule right now.
+
 ## Install Dev Tools 🛠
 -   Install [Homebrew](https://brew.sh)
 Open Terminal, run the following command
