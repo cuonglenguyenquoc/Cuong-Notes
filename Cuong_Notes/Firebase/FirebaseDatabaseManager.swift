@@ -15,8 +15,6 @@ enum FirebaseError: Error {
     case other
 }
 
-// TODO: - Add query support
-
 class FirebaseDatabaseManager {
     
     // MARK: - Singleton Instance
@@ -97,5 +95,4 @@ class FirebaseDatabaseManager {
             completion?(.success(()))
         }
     }
-    
 }

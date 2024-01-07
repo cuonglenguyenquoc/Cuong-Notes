@@ -9,15 +9,19 @@ import Foundation
 import SwiftUI
 
 struct UserListNodeView: View {
+    // MARK: - Variables
     @StateObject var viewModel: UserListNodeViewModel
     private var userModel: UserModel
     
+    // MARK: - Init
     init(userModel: UserModel) {
         self.userModel = userModel
         let repository = FirebaseNoteRepository(userModel: userModel)
         let useCase = DefaultGetNotesListUseCase(noteRepository: repository)
         self._viewModel = StateObject(wrappedValue: UserListNodeViewModel(getNotesListUseCase: useCase))
     }
+    
+    // MARK: - Views
     var body: some View {
         NavigationView {
             ZStack {
@@ -46,18 +50,6 @@ struct UserListNodeView: View {
                 addNoteButton()
             }
             .navigationTitle(userModel.userName)
-            .toolbar {
-                ToolbarItem() {
-                    Button(action: {
-                        
-                    }) {
-                        Image("people_white")
-                    }
-                    .padding(8)
-                    .background(Color(hex: "3B3B3B"))
-                    .cornerRadius(16)
-                }
-            }
             .onAppear {
                 viewModel.onAppear()
             }
@@ -95,28 +87,5 @@ struct UserListNodeView: View {
 struct UserListNodeView_Previews: PreviewProvider {
     static var previews: some View {
         UserListNodeView(userModel: UserModel(id: "", userName: ""))
-    }
-}
-
-
-struct NoteRow : View {
-    var noteModel: NoteModel
-    var body: some View {
-        
-        VStack(alignment: .leading) {
-            Text(Date(timeIntervalSince1970: noteModel.timeStamp).toString())
-                .font(.headline)
-            Text(noteModel.title)
-                .font(.title)
-                .fontWeight(.bold)
-            Text(noteModel.text)
-                .font(.body)
-                .fontWeight(.regular)
-            }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundColor(.black)
-        .padding(16)
-        .background(Color(hex: noteModel.color))
-        .cornerRadius(16)
     }
 }
