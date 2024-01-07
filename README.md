@@ -6,8 +6,8 @@ This SwiftUI note application provides a simple interface for users to create an
 This application is applied the **Clean Architecture**: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html 
 ### Layers
 * **Domain Layer** = Entities + Use Cases + Repositories Interfaces
-* **Data Repositories Layer** = Repositories Implementations + FirebaseDatabase ( or API Network/Persistence DB) 
-* **Presentation Layer (MVVM)** = ViewModels + Views (Written in SwiftUI)
+* **Data Repositories Layer** = Repositories Implementations + FirebaseDatabase (or API Network/Persistence DB) 
+* **Presentation Layer (MVVM)** = ViewModels + Views (written in SwiftUI)
 
 ### Dependency Direction
 ![Alt text](CleanArchitectureDependencies.png?raw=true "Modules Dependencies")
@@ -19,6 +19,12 @@ The application utilizes Firebase Realtime Database to synchronize notes in real
 * **FirebaseDatabaseManager:** A Singleton is reponsible for Firebase configurations. It wraps **DatabaseReference** up and provides **CRUD Operations**
 * **FirebaseDatabaseEndpoint** The endpoint provides information such as the path and the synced data flag for operations.
 
+## Timeline ⌛️
+I actually spent most of my time studying SwiftUI, because I had never used it in my projects before. It is therefore difficult to give an exact timeline for each aspect of the application, but I can give a timeline as below **(10points in 5 working days)**:
+* **(5 points)Learning:** About SwiftUI, Combine, Firebase (face new problems in those and find ways to resolve it).
+* **(0.5 point)Setup project**
+* **(4 points)Doing tasks and write UnitTest:** Excluding "As a user I can see all the notes from other users".
+* **(0.5 point)Write Readme file** 
 ## Install Dev Tools 🛠
 -   Install [Homebrew](https://brew.sh)
 Open Terminal, run the following command
