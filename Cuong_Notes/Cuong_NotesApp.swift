@@ -12,7 +12,9 @@ struct Cuong_NotesApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    @StateObject var appState = AppState()
+    private let container = DIContainer.defaultValue
+    @State
+    private var currentAppRoot: AppRoot = .register
     
     init() {
         FirebaseDatabaseManager.shared.configure()
@@ -27,17 +29,20 @@ struct Cuong_NotesApp: App {
         WindowGroup {
             rootView
                 .preferredColorScheme(.dark)
-                .environmentObject(appState)
+                .inject(container)
+                .onReceive(container.appState) { appState in
+                    self.currentAppRoot = appState.appRoot
+                }
         }
     }
     
     @ViewBuilder
     private var rootView: some View {
-        switch appState.appRoot {
+        switch currentAppRoot {
         case .register:
             UserNameView()
-        case .note(let userModel):
-            UserListNodeView(userModel: userModel)
+        case .note:
+            UserListNodeView()
         }
     }
 }

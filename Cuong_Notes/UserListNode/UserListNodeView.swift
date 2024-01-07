@@ -10,85 +10,96 @@ import SwiftUI
 
 struct UserListNodeView: View {
     // MARK: - Variables
-    @StateObject var viewModel: UserListNodeViewModel
-    private var userModel: UserModel
-    
-    // MARK: - Init
-    init(userModel: UserModel) {
-        self.userModel = userModel
-        let repository = FirebaseNoteRepository(userModel: userModel)
-        let getNotesListUseCase = DefaultGetNotesListUseCase(noteRepository: repository)
-        let deleteNoteUseCase = DefaultDeleteNoteUseCase(noteRepository: repository)
-        self._viewModel = StateObject(wrappedValue: UserListNodeViewModel(getNotesListUseCase: getNotesListUseCase, deleteNoteUseCase: deleteNoteUseCase))
-    }
+    @Environment(\.injected) private var injected: DIContainer
     
     // MARK: - Views
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.ui.background
-                    .ignoresSafeArea()
-                if viewModel.viewState == .fetching {
-                    ActivityIndicatorView()
-                } else {
-                    if viewModel.noteModels.isEmpty {
-                        VStack {
-                            Image("image_search")
-                            Text("Create your first note!")
-                                .font(.system(size: 16, weight: .regular))
-                                .foregroundColor(Color.white)
-                        }
-                    } else {
-                        List(viewModel.noteModels) { noteModel in
-                            return NoteRow(noteModel: noteModel, deleteHandler: { noteModel in
-                                self.viewModel.deleteNote(noteModel)
-                            })
-                        }
-                        .lineSpacing(16)
-                        .frame(maxWidth: .infinity)
-                        .listStyle(GroupedListStyle())
+        if let userModel = injected.appState.value.userInfo {
+            ContentView(viewModel: UserListNodeViewModel(noteRepository: injected.repositories.noteRepository, userModel: userModel))
+        } else {
+            Text("Something was wrong")
+        }
+    }
+    
+    private struct ContentView: View {
+        @Environment(\.injected) private var injected: DIContainer
+        @StateObject var viewModel: UserListNodeViewModel
+        
+        var body: some View {
+            NavigationView {
+                ZStack {
+                    Color.ui.background
+                        .ignoresSafeArea()
+                    switch viewModel.viewState {
+                    case .fetching:
+                        ActivityIndicatorView()
+                    case .empty:
+                        emptyView()
+                    case .notes:
+                        listNotes()
                     }
+                    addNoteButton()
                 }
-                
-                addNoteButton()
-            }
-            .navigationTitle(userModel.userName)
-            .onAppear {
-                viewModel.onAppear()
+                .navigationTitle(injected.appState.value.userInfo?.userName ?? "")
+                .onAppear {
+                    viewModel.onAppear()
+                }
             }
         }
-    }
-    
-    @ViewBuilder
-    private func addNoteButton() -> some View {
-        VStack(spacing: 0) {
-            Spacer()
-            
-            HStack(spacing: 0) {
+        
+        @ViewBuilder
+        private func emptyView() -> some View {
+            VStack {
+                Image("image_search")
+                Text("Create your first note!")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(Color.white)
+            }
+        }
+        
+        @ViewBuilder
+        private func listNotes() -> some View {
+            List(viewModel.noteModels) { noteModel in
+                return NoteRow(noteModel: noteModel, deleteHandler: { noteModel in
+                    self.viewModel.deleteNote(noteModel)
+                })
+            }
+            .lineSpacing(16)
+            .frame(maxWidth: .infinity)
+            .listStyle(GroupedListStyle())
+        }
+        
+        @ViewBuilder
+        private func addNoteButton() -> some View {
+            VStack(spacing: 0) {
                 Spacer()
-                NavigationLink(destination: NoteCreatorView(userModel: userModel, addNoteSuccessHandler: addNoteSuccessHandler)) {
-                    Image(systemName: "plus")
-                        .resizable()
-                        .padding()
-                        .frame(width: 50, height: 50)
-                        .background(.mint)
-                        .clipShape(Circle())
-                        .foregroundColor(.white)
+                
+                HStack(spacing: 0) {
+                    Spacer()
+                    NavigationLink(destination: NoteCreatorView(addNoteSuccessHandler: addNoteSuccessHandler)) {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .padding()
+                            .frame(width: 50, height: 50)
+                            .background(.mint)
+                            .clipShape(Circle())
+                            .foregroundColor(.white)
+                    }
+                    .padding(30)
                 }
-                .padding(30)
             }
         }
-    }
-    
-    private var addNoteSuccessHandler: (()->())? {
-        return { 
-            self.viewModel.refresh()
+        
+        private var addNoteSuccessHandler: (()->())? {
+            return {
+                self.viewModel.refresh()
+            }
         }
     }
 }
 
 struct UserListNodeView_Previews: PreviewProvider {
     static var previews: some View {
-        UserListNodeView(userModel: UserModel(id: "", userName: ""))
+        UserListNodeView()
     }
 }

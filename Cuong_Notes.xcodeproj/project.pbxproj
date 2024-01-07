@@ -13,7 +13,6 @@
 		FA6C72532B46600800FF1BE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6C72522B46600800FF1BE2 /* GoogleService-Info.plist */; };
 		FA6C72552B46618400FF1BE2 /* FirebaseUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72542B46618400FF1BE2 /* FirebaseUserRepository.swift */; };
 		FA6C72582B4662C300FF1BE2 /* UserFirebaseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72572B4662C300FF1BE2 /* UserFirebaseEndpoint.swift */; };
-		FA6C725A2B4668E000FF1BE2 /* RegisterUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72592B4668E000FF1BE2 /* RegisterUserUseCase.swift */; };
 		FA6C725E2B467B9200FF1BE2 /* UserListNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C725D2B467B9200FF1BE2 /* UserListNodeView.swift */; };
 		FA6C72612B469BC000FF1BE2 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72602B469BC000FF1BE2 /* ActivityIndicatorView.swift */; };
 		FA6C726A2B46ABD100FF1BE2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72692B46ABD100FF1BE2 /* AppState.swift */; };
@@ -30,7 +29,6 @@
 		FACBC0E92B453DE6003E5BF2 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0E82B453DE6003E5BF2 /* View+Ext.swift */; };
 		FACBC0F32B4551E3003E5BF2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0F22B4551E3003E5BF2 /* UserRepository.swift */; };
 		FACBC0F72B455541003E5BF2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0F62B455541003E5BF2 /* UserModel.swift */; };
-		FACBC0F92B4555F2003E5BF2 /* GetUserInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0F82B4555F2003E5BF2 /* GetUserInfoUseCase.swift */; };
 		FACBC0FC2B456845003E5BF2 /* FirebaseDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0FB2B456845003E5BF2 /* FirebaseDatabaseManager.swift */; };
 		FACBC0FE2B4568DB003E5BF2 /* FirebaseDatabaseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0FD2B4568DB003E5BF2 /* FirebaseDatabaseEndpoint.swift */; };
 		FACBC1002B459E15003E5BF2 /* NSDictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0FF2B459E15003E5BF2 /* NSDictionary+Ext.swift */; };
@@ -40,15 +38,14 @@
 		FAEFFDC02B47E93F0060F6FD /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDBF2B47E93F0060F6FD /* NoteRepository.swift */; };
 		FAEFFDC22B47EBB40060F6FD /* FirebaseNoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC12B47EBB40060F6FD /* FirebaseNoteRepository.swift */; };
 		FAEFFDC42B47EBEF0060F6FD /* NoteFirebaseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC32B47EBEF0060F6FD /* NoteFirebaseEndpoint.swift */; };
-		FAEFFDC62B47F0370060F6FD /* AddNewNoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC52B47F0370060F6FD /* AddNewNoteUseCase.swift */; };
-		FAEFFDC82B47F1120060F6FD /* GetNotesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC72B47F1120060F6FD /* GetNotesListUseCase.swift */; };
 		FAEFFDCA2B47F1490060F6FD /* UserListNodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC92B47F1490060F6FD /* UserListNodeViewModel.swift */; };
 		FAEFFDCD2B4906C30060F6FD /* NoteCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */; };
 		FAEFFDCF2B4906CD0060F6FD /* NoteCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */; };
+		FAEFFDD22B4A55D70060F6FD /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDD12B4A55D70060F6FD /* DependencyInjector.swift */; };
+		FAEFFDD42B4A58A20060F6FD /* RepositoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDD32B4A58A20060F6FD /* RepositoryContainer.swift */; };
 		FAEFFDD82B4A7EB80060F6FD /* MockUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */; };
 		FAEFFDDB2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */; };
 		FAEFFDDD2B4A97E80060F6FD /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDDC2B4A97E80060F6FD /* NoteRow.swift */; };
-		FAEFFDDF2B4AAE190060F6FD /* DeleteNoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDDE2B4AAE190060F6FD /* DeleteNoteUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +78,6 @@
 		FA6C72522B46600800FF1BE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA6C72542B46618400FF1BE2 /* FirebaseUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserRepository.swift; sourceTree = "<group>"; };
 		FA6C72572B4662C300FF1BE2 /* UserFirebaseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebaseEndpoint.swift; sourceTree = "<group>"; };
-		FA6C72592B4668E000FF1BE2 /* RegisterUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserUseCase.swift; sourceTree = "<group>"; };
 		FA6C725D2B467B9200FF1BE2 /* UserListNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListNodeView.swift; sourceTree = "<group>"; };
 		FA6C72602B469BC000FF1BE2 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		FA6C72692B46ABD100FF1BE2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -102,7 +98,6 @@
 		FACBC0E82B453DE6003E5BF2 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		FACBC0F22B4551E3003E5BF2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		FACBC0F62B455541003E5BF2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		FACBC0F82B4555F2003E5BF2 /* GetUserInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoUseCase.swift; sourceTree = "<group>"; };
 		FACBC0FB2B456845003E5BF2 /* FirebaseDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseManager.swift; sourceTree = "<group>"; };
 		FACBC0FD2B4568DB003E5BF2 /* FirebaseDatabaseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseEndpoint.swift; sourceTree = "<group>"; };
 		FACBC0FF2B459E15003E5BF2 /* NSDictionary+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Ext.swift"; sourceTree = "<group>"; };
@@ -113,15 +108,14 @@
 		FAEFFDBF2B47E93F0060F6FD /* NoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
 		FAEFFDC12B47EBB40060F6FD /* FirebaseNoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNoteRepository.swift; sourceTree = "<group>"; };
 		FAEFFDC32B47EBEF0060F6FD /* NoteFirebaseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFirebaseEndpoint.swift; sourceTree = "<group>"; };
-		FAEFFDC52B47F0370060F6FD /* AddNewNoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewNoteUseCase.swift; sourceTree = "<group>"; };
-		FAEFFDC72B47F1120060F6FD /* GetNotesListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNotesListUseCase.swift; sourceTree = "<group>"; };
 		FAEFFDC92B47F1490060F6FD /* UserListNodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListNodeViewModel.swift; sourceTree = "<group>"; };
 		FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatorView.swift; sourceTree = "<group>"; };
 		FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatorViewModel.swift; sourceTree = "<group>"; };
+		FAEFFDD12B4A55D70060F6FD /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		FAEFFDD32B4A58A20060F6FD /* RepositoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContainer.swift; sourceTree = "<group>"; };
 		FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserRepository.swift; sourceTree = "<group>"; };
 		FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewModelSuccessTest.swift; sourceTree = "<group>"; };
 		FAEFFDDC2B4A97E80060F6FD /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
-		FAEFFDDE2B4AAE190060F6FD /* DeleteNoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteNoteUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,14 +196,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		FA6C72682B46ABC700FF1BE2 /* AppState */ = {
-			isa = PBXGroup;
-			children = (
-				FA6C72692B46ABD100FF1BE2 /* AppState.swift */,
-			);
-			path = AppState;
-			sourceTree = "<group>";
-		};
 		FA71DD292B44FAF7001AF3A4 = {
 			isa = PBXGroup;
 			children = (
@@ -235,8 +221,8 @@
 		FA71DD342B44FAF8001AF3A4 /* Cuong_Notes */ = {
 			isa = PBXGroup;
 			children = (
+				FAEFFDD02B4A54770060F6FD /* Injected */,
 				FAEFFDBC2B47B9630060F6FD /* Cuong-Notes-Info.plist */,
-				FA6C72682B46ABC700FF1BE2 /* AppState */,
 				FA6C72522B46600800FF1BE2 /* GoogleService-Info.plist */,
 				FACBC0FA2B45683A003E5BF2 /* Firebase */,
 				FACBC0EE2B4551A0003E5BF2 /* Domain */,
@@ -324,23 +310,10 @@
 		FACBC0EE2B4551A0003E5BF2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				FACBC0F12B4551D0003E5BF2 /* Reposities */,
 				FACBC0F02B4551BF003E5BF2 /* Models */,
-				FACBC0EF2B4551AA003E5BF2 /* UseCases */,
+				FACBC0F12B4551D0003E5BF2 /* Reposities */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		FACBC0EF2B4551AA003E5BF2 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				FACBC0F82B4555F2003E5BF2 /* GetUserInfoUseCase.swift */,
-				FA6C72592B4668E000FF1BE2 /* RegisterUserUseCase.swift */,
-				FAEFFDC52B47F0370060F6FD /* AddNewNoteUseCase.swift */,
-				FAEFFDC72B47F1120060F6FD /* GetNotesListUseCase.swift */,
-				FAEFFDDE2B4AAE190060F6FD /* DeleteNoteUseCase.swift */,
-			);
-			path = UseCases;
 			sourceTree = "<group>";
 		};
 		FACBC0F02B4551BF003E5BF2 /* Models */ = {
@@ -377,6 +350,16 @@
 				FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */,
 			);
 			path = NoteCreator;
+			sourceTree = "<group>";
+		};
+		FAEFFDD02B4A54770060F6FD /* Injected */ = {
+			isa = PBXGroup;
+			children = (
+				FA6C72692B46ABD100FF1BE2 /* AppState.swift */,
+				FAEFFDD12B4A55D70060F6FD /* DependencyInjector.swift */,
+				FAEFFDD32B4A58A20060F6FD /* RepositoryContainer.swift */,
+			);
+			path = Injected;
 			sourceTree = "<group>";
 		};
 		FAEFFDD62B4A7E970060F6FD /* Mocks */ = {
@@ -635,18 +618,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEFFDDD2B4A97E80060F6FD /* NoteRow.swift in Sources */,
-				FAEFFDC62B47F0370060F6FD /* AddNewNoteUseCase.swift in Sources */,
-				FAEFFDC82B47F1120060F6FD /* GetNotesListUseCase.swift in Sources */,
 				FACBC0E92B453DE6003E5BF2 /* View+Ext.swift in Sources */,
 				FAEFFDC02B47E93F0060F6FD /* NoteRepository.swift in Sources */,
 				FACBC1022B459E5B003E5BF2 /* Encodable+Ext.swift in Sources */,
 				FACBC0F32B4551E3003E5BF2 /* UserRepository.swift in Sources */,
 				FACBC0E42B453B40003E5BF2 /* UserNameViewModel.swift in Sources */,
 				FA6C72552B46618400FF1BE2 /* FirebaseUserRepository.swift in Sources */,
-				FACBC0F92B4555F2003E5BF2 /* GetUserInfoUseCase.swift in Sources */,
 				FACBC0FE2B4568DB003E5BF2 /* FirebaseDatabaseEndpoint.swift in Sources */,
 				FAEFFDBE2B47E8AB0060F6FD /* NoteModel.swift in Sources */,
 				FA6C725E2B467B9200FF1BE2 /* UserListNodeView.swift in Sources */,
+				FAEFFDD22B4A55D70060F6FD /* DependencyInjector.swift in Sources */,
 				FA6C726A2B46ABD100FF1BE2 /* AppState.swift in Sources */,
 				FACBC0E22B453B39003E5BF2 /* UserNameView.swift in Sources */,
 				FA8AACE92B4501E600194106 /* AppDelegate.swift in Sources */,
@@ -654,11 +635,10 @@
 				FACBC1062B459E95003E5BF2 /* NSArray+Ext.swift in Sources */,
 				FAEFFDC42B47EBEF0060F6FD /* NoteFirebaseEndpoint.swift in Sources */,
 				FA6C72612B469BC000FF1BE2 /* ActivityIndicatorView.swift in Sources */,
-				FAEFFDDF2B4AAE190060F6FD /* DeleteNoteUseCase.swift in Sources */,
 				FACBC1002B459E15003E5BF2 /* NSDictionary+Ext.swift in Sources */,
 				FAEFFDCA2B47F1490060F6FD /* UserListNodeViewModel.swift in Sources */,
 				FA6C72582B4662C300FF1BE2 /* UserFirebaseEndpoint.swift in Sources */,
-				FA6C725A2B4668E000FF1BE2 /* RegisterUserUseCase.swift in Sources */,
+				FAEFFDD42B4A58A20060F6FD /* RepositoryContainer.swift in Sources */,
 				FA71DD362B44FAF8001AF3A4 /* Cuong_NotesApp.swift in Sources */,
 				FACBC0F72B455541003E5BF2 /* UserModel.swift in Sources */,
 				FAEFFDCD2B4906C30060F6FD /* NoteCreatorView.swift in Sources */,

@@ -32,22 +32,21 @@ class UserListNodeViewModel: ObservableObject, UserListNodeViewModelInput, UserL
     // MARK: - Instance Variables
     private var subscriptions = Set<AnyCancellable>()
     
-    private let getNotesListUseCase: GetNotesListUseCase
-    private let deleteNoteUseCase: DeleteNoteUseCase
+    let noteRepository: NoteRepository
+    let userModel: UserModel
     
     // MARK: - Init
-    init(getNotesListUseCase: GetNotesListUseCase,
-         deleteNoteUseCase: DeleteNoteUseCase) {
-        self.getNotesListUseCase = getNotesListUseCase
-        self.deleteNoteUseCase = deleteNoteUseCase
+    init(noteRepository: NoteRepository, userModel: UserModel) {
+        self.noteRepository = noteRepository
+        self.userModel = userModel
     }
     
     private func fetchNotesList() {
-        getNotesListUseCase
-            .execute()
+        noteRepository
+            .getNotesList(userId: userModel.id)
             .replaceError(with: [])
             .sink(receiveValue: { [weak self] noteModels in
-                self?.viewState = .finished
+                self?.viewState = noteModels.isEmpty ? .empty : .notes
                 self?.noteModels = noteModels
             })
             .store(in: &subscriptions)
@@ -63,8 +62,8 @@ class UserListNodeViewModel: ObservableObject, UserListNodeViewModelInput, UserL
     }
     
     func deleteNote(_ noteModel: NoteModel) {
-        deleteNoteUseCase
-            .execute(noteId: noteModel.id)
+        noteRepository
+            .deleteNote(for: userModel.id, noteId: noteModel.id)
             .sink { completion in
                 // TODO: cuonglnq - handle error
             } receiveValue: { [weak self] _ in
@@ -77,6 +76,7 @@ class UserListNodeViewModel: ObservableObject, UserListNodeViewModelInput, UserL
 extension UserListNodeViewModel {
     enum ViewState {
         case fetching
-        case finished
+        case empty
+        case notes
     }
 }

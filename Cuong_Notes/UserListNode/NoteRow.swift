@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct NoteRow : View {
+struct NoteRow: View {
     var noteModel: NoteModel
     var deleteHandler: ((NoteModel) -> ())?
     
@@ -31,9 +31,10 @@ struct NoteRow : View {
                 self.deleteHandler?(noteModel)
             } label: {
                 Image("icon_delete")
-                    .renderingMode(.template)
-                    .tint(Color.black.opacity(0.8))
+                    .resizable()
+                    .frame(width: 28, height: 28)
             }
+            .buttonStyle(PlainButtonStyle())
         }
         
         .frame(maxWidth: .infinity, alignment: .leading)

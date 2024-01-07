@@ -21,6 +21,7 @@ protocol UserNameViewModelInput {
 
 class UserNameViewModel: ObservableObject, UserNameViewModelInput, UserNameViewModelOutput {
     
+    // MARK: - Outputs
     @Published
     var shouldShowInputField: Bool = false
     
@@ -28,19 +29,20 @@ class UserNameViewModel: ObservableObject, UserNameViewModelInput, UserNameViewM
     
     var onMoveToNoteSubject: PassthroughSubject<UserModel, Never> = .init()
     
+    // MARK: - Variables
     private var subscriptions = Set<AnyCancellable>()
     
-    private let registerUserUseCase: RegisterUserUseCase
-    private let getUserInfoUseCase: GetUserInfoUseCase
+    private let userRepository: UserRepository
     
-    init(getUserInfoUseCase: GetUserInfoUseCase, registerUserUseCase: RegisterUserUseCase) {
-        self.getUserInfoUseCase = getUserInfoUseCase
-        self.registerUserUseCase = registerUserUseCase
+    // MARK: - Init
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
     }
     
+    // MARK: - Inputs
     func onAppear() {
-        getUserInfoUseCase
-            .execute()
+        userRepository
+            .getUserInfo()
             .delay(for: 1, scheduler: RunLoop.main)
             .sink { [weak self] completion in
                 if case .failure(_) = completion {
@@ -58,8 +60,8 @@ class UserNameViewModel: ObservableObject, UserNameViewModelInput, UserNameViewM
     }
     
     func registerUser(with userName: String) {
-        registerUserUseCase
-            .execute(requestValue: userName)
+        userRepository
+            .registerNewUser(with: userName)
             .sink { [weak self] completion in
                 if case .failure(_) = completion {
                     self?.onRegisterErrorSubject.send(())
