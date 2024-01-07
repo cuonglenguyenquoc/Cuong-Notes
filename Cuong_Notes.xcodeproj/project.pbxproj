@@ -46,6 +46,8 @@
 		FAEFFDCA2B47F1490060F6FD /* UserListNodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC92B47F1490060F6FD /* UserListNodeViewModel.swift */; };
 		FAEFFDCD2B4906C30060F6FD /* NoteCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */; };
 		FAEFFDCF2B4906CD0060F6FD /* NoteCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */; };
+		FAEFFDD82B4A7EB80060F6FD /* MockUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */; };
+		FAEFFDDB2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		FAEFFDC92B47F1490060F6FD /* UserListNodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListNodeViewModel.swift; sourceTree = "<group>"; };
 		FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatorView.swift; sourceTree = "<group>"; };
 		FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatorViewModel.swift; sourceTree = "<group>"; };
+		FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserRepository.swift; sourceTree = "<group>"; };
+		FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewModelSuccessTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,8 @@
 		FA71DD462B44FAF9001AF3A4 /* Cuong_NotesTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAEFFDD92B4A83910060F6FD /* UserName */,
+				FAEFFDD62B4A7E970060F6FD /* Mocks */,
 				FA71DD472B44FAF9001AF3A4 /* Cuong_NotesTests.swift */,
 			);
 			path = Cuong_NotesTests;
@@ -368,6 +374,22 @@
 				FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */,
 			);
 			path = NoteCreator;
+			sourceTree = "<group>";
+		};
+		FAEFFDD62B4A7E970060F6FD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FAEFFDD92B4A83910060F6FD /* UserName */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */,
+			);
+			path = UserName;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -646,6 +668,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEFFDDB2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift in Sources */,
+				FAEFFDD82B4A7EB80060F6FD /* MockUserRepository.swift in Sources */,
 				FA71DD482B44FAF9001AF3A4 /* Cuong_NotesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
