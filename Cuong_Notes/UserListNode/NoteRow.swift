@@ -10,21 +10,33 @@ import SwiftUI
 
 struct NoteRow : View {
     var noteModel: NoteModel
+    var deleteHandler: ((NoteModel) -> ())?
+    
     var body: some View {
-        
-        VStack(alignment: .leading) {
-            Text(Date(timeIntervalSince1970: noteModel.timeStamp).toString())
-                .font(.headline)
-            Text(noteModel.title)
-                .font(.title)
-                .fontWeight(.bold)
-            Text(noteModel.text)
-                .font(.body)
-                .fontWeight(.regular)
-                .lineSpacing(2)
+        HStack(alignment: .center) {
+            VStack(alignment: .leading) {
+                Text(Date(timeIntervalSince1970: noteModel.timeStamp).toString())
+                    .font(.headline)
+                Text(noteModel.title)
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text(noteModel.text)
+                    .font(.body)
+                    .fontWeight(.regular)
+                    .lineSpacing(2)
+                }
+            .foregroundColor(.black)
+            Spacer()
+            Button {
+                self.deleteHandler?(noteModel)
+            } label: {
+                Image("icon_delete")
+                    .renderingMode(.template)
+                    .tint(Color.black.opacity(0.8))
             }
+        }
+        
         .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundColor(.black)
         .padding(16)
         .background(Color(hex: noteModel.color))
         .cornerRadius(16)

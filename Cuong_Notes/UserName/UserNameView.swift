@@ -64,7 +64,7 @@ struct UserNameView: View {
             viewModel.registerUser(with: name)
         }
         .frame(width: 160, height: 40)
-        .fontWeight(.bold)
+        .font(.system(size: 20, weight: .bold))
         .background(Color.blue.opacity(name.isEmpty ? 0.5 : 0.7))
         .foregroundColor(name.isEmpty ? Color.gray : Color.white)
         .cornerRadius(8)

@@ -35,7 +35,6 @@ class FirebaseNoteRepository: NoteRepository {
     }
     
     func addNewNote(with title: String, note: String) -> Future<NoteModel, Error> {
-        
         Future<NoteModel, Error> { [weak self] promise in
             guard let self = self else {
                 promise(.failure(FirebaseError.other))
@@ -53,6 +52,25 @@ class FirebaseNoteRepository: NoteRepository {
                         promise(.failure(error))
                     }
                 }
+        }
+    }
+    
+    func deleteNote(_ noteId: String) -> Future<Void, Error> {
+        Future<Void, Error> { [weak self] promise in
+            guard let self = self else {
+                promise(.failure(FirebaseError.other))
+                return
+            }
+            NoteFirebaseEndpoint
+                .deleteNote(userId: userModel.id, noteId: noteId)
+                .remove(completion: {( result: Result<Void, Error>) in
+                    switch result {
+                    case .success(_):
+                        promise(.success(()))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                })
         }
     }
 }

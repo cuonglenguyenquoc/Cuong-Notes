@@ -17,8 +17,9 @@ struct UserListNodeView: View {
     init(userModel: UserModel) {
         self.userModel = userModel
         let repository = FirebaseNoteRepository(userModel: userModel)
-        let useCase = DefaultGetNotesListUseCase(noteRepository: repository)
-        self._viewModel = StateObject(wrappedValue: UserListNodeViewModel(getNotesListUseCase: useCase))
+        let getNotesListUseCase = DefaultGetNotesListUseCase(noteRepository: repository)
+        let deleteNoteUseCase = DefaultDeleteNoteUseCase(noteRepository: repository)
+        self._viewModel = StateObject(wrappedValue: UserListNodeViewModel(getNotesListUseCase: getNotesListUseCase, deleteNoteUseCase: deleteNoteUseCase))
     }
     
     // MARK: - Views
@@ -39,7 +40,9 @@ struct UserListNodeView: View {
                         }
                     } else {
                         List(viewModel.noteModels) { noteModel in
-                            return NoteRow(noteModel: noteModel)
+                            return NoteRow(noteModel: noteModel, deleteHandler: { noteModel in
+                                self.viewModel.deleteNote(noteModel)
+                            })
                         }
                         .lineSpacing(16)
                         .frame(maxWidth: .infinity)

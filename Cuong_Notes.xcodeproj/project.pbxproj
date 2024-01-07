@@ -18,7 +18,6 @@
 		FA6C72612B469BC000FF1BE2 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72602B469BC000FF1BE2 /* ActivityIndicatorView.swift */; };
 		FA6C726A2B46ABD100FF1BE2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72692B46ABD100FF1BE2 /* AppState.swift */; };
 		FA71DD362B44FAF8001AF3A4 /* Cuong_NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD352B44FAF8001AF3A4 /* Cuong_NotesApp.swift */; };
-		FA71DD382B44FAF8001AF3A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD372B44FAF8001AF3A4 /* ContentView.swift */; };
 		FA71DD3A2B44FAF9001AF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA71DD392B44FAF9001AF3A4 /* Assets.xcassets */; };
 		FA71DD3E2B44FAF9001AF3A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA71DD3D2B44FAF9001AF3A4 /* Preview Assets.xcassets */; };
 		FA71DD482B44FAF9001AF3A4 /* Cuong_NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD472B44FAF9001AF3A4 /* Cuong_NotesTests.swift */; };
@@ -49,6 +48,7 @@
 		FAEFFDD82B4A7EB80060F6FD /* MockUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */; };
 		FAEFFDDB2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */; };
 		FAEFFDDD2B4A97E80060F6FD /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDDC2B4A97E80060F6FD /* NoteRow.swift */; };
+		FAEFFDDF2B4AAE190060F6FD /* DeleteNoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDDE2B4AAE190060F6FD /* DeleteNoteUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +87,6 @@
 		FA6C72692B46ABD100FF1BE2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FA71DD322B44FAF8001AF3A4 /* Cuong_Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuong_Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA71DD352B44FAF8001AF3A4 /* Cuong_NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuong_NotesApp.swift; sourceTree = "<group>"; };
-		FA71DD372B44FAF8001AF3A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA71DD392B44FAF9001AF3A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA71DD3B2B44FAF9001AF3A4 /* Cuong_Notes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cuong_Notes.entitlements; sourceTree = "<group>"; };
 		FA71DD3D2B44FAF9001AF3A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserRepository.swift; sourceTree = "<group>"; };
 		FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewModelSuccessTest.swift; sourceTree = "<group>"; };
 		FAEFFDDC2B4A97E80060F6FD /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
+		FAEFFDDE2B4AAE190060F6FD /* DeleteNoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteNoteUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +248,6 @@
 				FA6C725C2B467B6B00FF1BE2 /* UserListNode */,
 				FA8AACE82B4501E600194106 /* AppDelegate.swift */,
 				FA71DD352B44FAF8001AF3A4 /* Cuong_NotesApp.swift */,
-				FA71DD372B44FAF8001AF3A4 /* ContentView.swift */,
 				FA71DD392B44FAF9001AF3A4 /* Assets.xcassets */,
 				FA71DD3B2B44FAF9001AF3A4 /* Cuong_Notes.entitlements */,
 				FA71DD3C2B44FAF9001AF3A4 /* Preview Content */,
@@ -339,6 +338,7 @@
 				FA6C72592B4668E000FF1BE2 /* RegisterUserUseCase.swift */,
 				FAEFFDC52B47F0370060F6FD /* AddNewNoteUseCase.swift */,
 				FAEFFDC72B47F1120060F6FD /* GetNotesListUseCase.swift */,
+				FAEFFDDE2B4AAE190060F6FD /* DeleteNoteUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -654,10 +654,10 @@
 				FACBC1062B459E95003E5BF2 /* NSArray+Ext.swift in Sources */,
 				FAEFFDC42B47EBEF0060F6FD /* NoteFirebaseEndpoint.swift in Sources */,
 				FA6C72612B469BC000FF1BE2 /* ActivityIndicatorView.swift in Sources */,
+				FAEFFDDF2B4AAE190060F6FD /* DeleteNoteUseCase.swift in Sources */,
 				FACBC1002B459E15003E5BF2 /* NSDictionary+Ext.swift in Sources */,
 				FAEFFDCA2B47F1490060F6FD /* UserListNodeViewModel.swift in Sources */,
 				FA6C72582B4662C300FF1BE2 /* UserFirebaseEndpoint.swift in Sources */,
-				FA71DD382B44FAF8001AF3A4 /* ContentView.swift in Sources */,
 				FA6C725A2B4668E000FF1BE2 /* RegisterUserUseCase.swift in Sources */,
 				FA71DD362B44FAF8001AF3A4 /* Cuong_NotesApp.swift in Sources */,
 				FACBC0F72B455541003E5BF2 /* UserModel.swift in Sources */,
@@ -838,7 +838,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
@@ -879,7 +879,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
