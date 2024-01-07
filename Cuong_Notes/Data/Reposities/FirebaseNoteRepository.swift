@@ -12,11 +12,7 @@ import Combine
 class FirebaseNoteRepository: NoteRepository {
     
     func getNotesList(userId: String) -> Future<[NoteModel], Error> {
-        Future<[NoteModel], Error> { [weak self] promise in
-            guard let self = self else {
-                promise(.failure(FirebaseError.other))
-                return
-            }
+        Future<[NoteModel], Error> { promise in
             NoteFirebaseEndpoint
                 .getNotesList(userId: userId)
                 .retrieve { (result: Result<[NoteModel], Error>) in
@@ -31,12 +27,7 @@ class FirebaseNoteRepository: NoteRepository {
     }
     
     func addNewNote(for userId: String, title: String, note: String) -> Future<NoteModel, Error> {
-        
-        Future<NoteModel, Error> { [weak self] promise in
-            guard let self = self else {
-                promise(.failure(FirebaseError.other))
-                return
-            }
+        Future<NoteModel, Error> { promise in
             let now = Date().timeIntervalSince1970
             let noteModel = NoteModel(id: UUID().uuidString, title: title, text: note, timeStamp: now)
             NoteFirebaseEndpoint
@@ -53,11 +44,7 @@ class FirebaseNoteRepository: NoteRepository {
     }
     
     func deleteNote(for userId: String, noteId: String) -> Future<Void, Error> {
-        Future<Void, Error> { [weak self] promise in
-            guard let self = self else {
-                promise(.failure(FirebaseError.other))
-                return
-            }
+        Future<Void, Error> { promise in
             NoteFirebaseEndpoint
                 .deleteNote(userId: userId, noteId: noteId)
                 .remove(completion: {( result: Result<Void, Error>) in

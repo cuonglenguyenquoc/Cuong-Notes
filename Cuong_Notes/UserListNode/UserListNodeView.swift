@@ -91,8 +91,8 @@ struct UserListNodeView: View {
         }
         
         private var addNoteSuccessHandler: (()->())? {
-            return {
-                self.viewModel.refresh()
+            return { [weak viewModel] in
+                viewModel?.refresh()
             }
         }
     }

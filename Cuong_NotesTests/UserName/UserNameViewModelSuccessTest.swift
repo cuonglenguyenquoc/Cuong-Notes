@@ -17,8 +17,7 @@ final class UserNameViewModelSuccessTest: XCTestCase {
     override func setUp() {
         super.setUp()
         mockRepository = MockSuccessUserRepository()
-        sut = UserNameViewModel(getUserInfoUseCase: DefaultGetUserInfoUseCase(userRepository: mockRepository),
-                                registerUserUseCase: DefaultRegisterUserUseCase(userRepository: mockRepository))
+        sut = UserNameViewModel(userRepository: mockRepository)
     }
     
     override func tearDown() {

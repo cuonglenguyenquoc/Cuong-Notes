@@ -5,7 +5,7 @@ This SwiftUI note application provides a simple interface for users to create an
 ## Architecture
 This application is applied the **Clean Architecture**: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html 
 ### Layers
-* **Domain Layer** = Entities + Use Cases + Repositories Interfaces
+* **Domain Layer** = Entities + Repositories Interfaces
 * **Data Repositories Layer** = Repositories Implementations + FirebaseDatabase (or API Network/Persistence DB) 
 * **Presentation Layer (MVVM)** = ViewModels + Views (written in SwiftUI)
 
@@ -30,6 +30,7 @@ I actually spent most of my time studying SwiftUI, because I had never used it i
 
 * User Identification: Because this application does not require users to login, so I used **UIDevice.current.identifierForVendor.uuidString** to identify users. The problem is that this value can be changed, according to the Apple documentation "The value changes when the user deletes all of that vendor’s apps from the device and subsequently reinstalls one or more of them. The value can also change when installing test builds using Xcode or when installing an app on a device using ad-hoc distribution"
 * Firebase Database Security: As mentioned above, it doesn't require users login, so it's hard to set the right security rules for Firebase Database at this time. I don't take the time to dig into how to set a good rule right now.
+* My DIContainer is an **@EnvironmentObject**, I can not find the way using my DIContainer in "View init()" to pass data into ViewModel. Therefore I have to use a sub ContentView for all main views.
 
 ## Install Dev Tools 🛠
 -   Install [Homebrew](https://brew.sh)

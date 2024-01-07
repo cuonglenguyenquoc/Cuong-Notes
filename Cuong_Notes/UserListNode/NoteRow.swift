@@ -20,6 +20,7 @@ struct NoteRow: View {
                 Text(noteModel.title)
                     .font(.title)
                     .fontWeight(.bold)
+                    .lineSpacing(2)
                 Text(noteModel.text)
                     .font(.body)
                     .fontWeight(.regular)

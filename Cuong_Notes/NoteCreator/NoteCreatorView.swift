@@ -20,9 +20,8 @@ struct NoteCreatorView: View {
     // MARK: - Views
     var body: some View {
         if let userModel = injected.appState.value.userInfo {
-            let viewModel = NoteCreatorViewModel(noteRepository: injected.repositories.noteRepository,
-                                                 userModel: userModel)
-            ContentView(viewModel: viewModel,
+            ContentView(viewModel: NoteCreatorViewModel(noteRepository: injected.repositories.noteRepository,
+                                                        userModel: userModel),
                         addNoteSuccessHandler: addNoteSuccessHandler)
         } else {
             Text("Something was wrong")
