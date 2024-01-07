@@ -27,11 +27,13 @@ class NoteCreatorViewModel: ObservableObject, NoteCreatorViewModelInput, NoteCre
     // MARK: - Instance Variables
     private var subscriptions = Set<AnyCancellable>()
     
-    private let addNewNoteUseCase: AddNewNoteUseCase
+    private let noteRepository: NoteRepository
+    private let userModel: UserModel
     
     // MARK: - Init
-    init(addNewNoteUseCase: AddNewNoteUseCase) {
-        self.addNewNoteUseCase = addNewNoteUseCase
+    init(noteRepository: NoteRepository, userModel: UserModel) {
+        self.noteRepository = noteRepository
+        self.userModel = userModel
     }
     
     // MARK: - Inputs
@@ -41,8 +43,8 @@ class NoteCreatorViewModel: ObservableObject, NoteCreatorViewModelInput, NoteCre
             errorSubject.send("Please provide values for title and description")
             return
         }
-        addNewNoteUseCase
-            .execute(title: title, note: note)
+        noteRepository
+            .addNewNote(for: userModel.id, title: title, note: note)
             .sink { [weak self] completion in
                 if case .failure(_) = completion {
                     self?.errorSubject.send("Server error")

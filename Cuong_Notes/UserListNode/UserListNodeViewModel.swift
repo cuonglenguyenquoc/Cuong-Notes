@@ -31,16 +31,18 @@ class UserListNodeViewModel: ObservableObject, UserListNodeViewModelInput, UserL
     // MARK: - Instance Variables
     private var subscriptions = Set<AnyCancellable>()
     
-    private let getNotesListUseCase: GetNotesListUseCase
+    let noteRepository: NoteRepository
+    let userModel: UserModel
     
     // MARK: - Init
-    init(getNotesListUseCase: GetNotesListUseCase) {
-        self.getNotesListUseCase = getNotesListUseCase
+    init(noteRepository: NoteRepository, userModel: UserModel) {
+        self.noteRepository = noteRepository
+        self.userModel = userModel
     }
     
     private func fetchNotesList() {
-        getNotesListUseCase
-            .execute()
+        noteRepository
+            .getNotesList(userId: userModel.id)
             .replaceError(with: [])
             .sink(receiveValue: { [weak self] noteModels in
                 self?.viewState = .finished

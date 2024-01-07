@@ -8,6 +8,11 @@
 import Foundation
 import Combine
 
+protocol UserRepository {
+    func getUserInfo() -> Future<UserModel?, Error>
+    func registerNewUser(with username: String) -> Future<UserModel, Error>
+}
+
 class FirebaseUserRepository: UserRepository {
     
     func getUserInfo() -> Future<UserModel?, Error> {

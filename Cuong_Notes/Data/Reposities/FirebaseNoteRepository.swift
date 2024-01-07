@@ -8,21 +8,21 @@
 import Foundation
 import Combine
 
+protocol NoteRepository {
+    func getNotesList(userId: String) -> Future<[NoteModel], Error>
+    func addNewNote(for userId: String, title: String, note: String) -> Future<NoteModel, Error>
+}
+
 class FirebaseNoteRepository: NoteRepository {
     
-    let userModel: UserModel
-    init(userModel: UserModel) {
-        self.userModel = userModel
-    }
-    
-    func getNotesList() -> Future<[NoteModel], Error> {
+    func getNotesList(userId: String) -> Future<[NoteModel], Error> {
         Future<[NoteModel], Error> { [weak self] promise in
             guard let self = self else {
                 promise(.failure(FirebaseError.other))
                 return
             }
             NoteFirebaseEndpoint
-                .getNotesList(userId: userModel.id)
+                .getNotesList(userId: userId)
                 .retrieve { (result: Result<[NoteModel], Error>) in
                     switch result {
                     case .success(let noteModels):
@@ -34,7 +34,7 @@ class FirebaseNoteRepository: NoteRepository {
         }
     }
     
-    func addNewNote(with title: String, note: String) -> Future<NoteModel, Error> {
+    func addNewNote(for userId: String, title: String, note: String) -> Future<NoteModel, Error> {
         
         Future<NoteModel, Error> { [weak self] promise in
             guard let self = self else {
@@ -44,7 +44,7 @@ class FirebaseNoteRepository: NoteRepository {
             let now = Date().timeIntervalSince1970
             let noteModel = NoteModel(id: UUID().uuidString, title: title, text: note, timeStamp: now)
             NoteFirebaseEndpoint
-                .addNewNote(userId: userModel.id, noteId: noteModel.id)
+                .addNewNote(userId: userId, noteId: noteModel.id)
                 .post(data: noteModel) { (result: Result<NoteModel, Error>) in
                     switch result {
                     case .success(let noteModel):

@@ -18,7 +18,6 @@
 		FA6C72612B469BC000FF1BE2 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72602B469BC000FF1BE2 /* ActivityIndicatorView.swift */; };
 		FA6C726A2B46ABD100FF1BE2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72692B46ABD100FF1BE2 /* AppState.swift */; };
 		FA71DD362B44FAF8001AF3A4 /* Cuong_NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD352B44FAF8001AF3A4 /* Cuong_NotesApp.swift */; };
-		FA71DD382B44FAF8001AF3A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD372B44FAF8001AF3A4 /* ContentView.swift */; };
 		FA71DD3A2B44FAF9001AF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA71DD392B44FAF9001AF3A4 /* Assets.xcassets */; };
 		FA71DD3E2B44FAF9001AF3A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA71DD3D2B44FAF9001AF3A4 /* Preview Assets.xcassets */; };
 		FA71DD482B44FAF9001AF3A4 /* Cuong_NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD472B44FAF9001AF3A4 /* Cuong_NotesTests.swift */; };
@@ -46,6 +45,8 @@
 		FAEFFDCA2B47F1490060F6FD /* UserListNodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDC92B47F1490060F6FD /* UserListNodeViewModel.swift */; };
 		FAEFFDCD2B4906C30060F6FD /* NoteCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */; };
 		FAEFFDCF2B4906CD0060F6FD /* NoteCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */; };
+		FAEFFDD22B4A55D70060F6FD /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDD12B4A55D70060F6FD /* DependencyInjector.swift */; };
+		FAEFFDD42B4A58A20060F6FD /* RepositoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDD32B4A58A20060F6FD /* RepositoryContainer.swift */; };
 		FAEFFDD82B4A7EB80060F6FD /* MockUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */; };
 		FAEFFDDB2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */; };
 /* End PBXBuildFile section */
@@ -86,7 +87,6 @@
 		FA6C72692B46ABD100FF1BE2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FA71DD322B44FAF8001AF3A4 /* Cuong_Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuong_Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA71DD352B44FAF8001AF3A4 /* Cuong_NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuong_NotesApp.swift; sourceTree = "<group>"; };
-		FA71DD372B44FAF8001AF3A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA71DD392B44FAF9001AF3A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA71DD3B2B44FAF9001AF3A4 /* Cuong_Notes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cuong_Notes.entitlements; sourceTree = "<group>"; };
 		FA71DD3D2B44FAF9001AF3A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -118,6 +118,8 @@
 		FAEFFDC92B47F1490060F6FD /* UserListNodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListNodeViewModel.swift; sourceTree = "<group>"; };
 		FAEFFDCC2B4906C30060F6FD /* NoteCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatorView.swift; sourceTree = "<group>"; };
 		FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreatorViewModel.swift; sourceTree = "<group>"; };
+		FAEFFDD12B4A55D70060F6FD /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		FAEFFDD32B4A58A20060F6FD /* RepositoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContainer.swift; sourceTree = "<group>"; };
 		FAEFFDD72B4A7EB80060F6FD /* MockUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserRepository.swift; sourceTree = "<group>"; };
 		FAEFFDDA2B4A83B00060F6FD /* UserNameViewModelSuccessTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewModelSuccessTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,14 +201,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		FA6C72682B46ABC700FF1BE2 /* AppState */ = {
-			isa = PBXGroup;
-			children = (
-				FA6C72692B46ABD100FF1BE2 /* AppState.swift */,
-			);
-			path = AppState;
-			sourceTree = "<group>";
-		};
 		FA71DD292B44FAF7001AF3A4 = {
 			isa = PBXGroup;
 			children = (
@@ -232,8 +226,8 @@
 		FA71DD342B44FAF8001AF3A4 /* Cuong_Notes */ = {
 			isa = PBXGroup;
 			children = (
+				FAEFFDD02B4A54770060F6FD /* Injected */,
 				FAEFFDBC2B47B9630060F6FD /* Cuong-Notes-Info.plist */,
-				FA6C72682B46ABC700FF1BE2 /* AppState */,
 				FA6C72522B46600800FF1BE2 /* GoogleService-Info.plist */,
 				FACBC0FA2B45683A003E5BF2 /* Firebase */,
 				FACBC0EE2B4551A0003E5BF2 /* Domain */,
@@ -245,7 +239,6 @@
 				FA6C725C2B467B6B00FF1BE2 /* UserListNode */,
 				FA8AACE82B4501E600194106 /* AppDelegate.swift */,
 				FA71DD352B44FAF8001AF3A4 /* Cuong_NotesApp.swift */,
-				FA71DD372B44FAF8001AF3A4 /* ContentView.swift */,
 				FA71DD392B44FAF9001AF3A4 /* Assets.xcassets */,
 				FA71DD3B2B44FAF9001AF3A4 /* Cuong_Notes.entitlements */,
 				FA71DD3C2B44FAF9001AF3A4 /* Preview Content */,
@@ -304,6 +297,7 @@
 		FACBC0EA2B4550A0003E5BF2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				FACBC0F02B4551BF003E5BF2 /* Models */,
 				FA6C72562B46629D00FF1BE2 /* Endpoints */,
 				FACBC0EB2B455115003E5BF2 /* Reposities */,
 			);
@@ -323,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				FACBC0F12B4551D0003E5BF2 /* Reposities */,
-				FACBC0F02B4551BF003E5BF2 /* Models */,
 				FACBC0EF2B4551AA003E5BF2 /* UseCases */,
 			);
 			path = Domain;
@@ -374,6 +367,16 @@
 				FAEFFDCE2B4906CD0060F6FD /* NoteCreatorViewModel.swift */,
 			);
 			path = NoteCreator;
+			sourceTree = "<group>";
+		};
+		FAEFFDD02B4A54770060F6FD /* Injected */ = {
+			isa = PBXGroup;
+			children = (
+				FA6C72692B46ABD100FF1BE2 /* AppState.swift */,
+				FAEFFDD12B4A55D70060F6FD /* DependencyInjector.swift */,
+				FAEFFDD32B4A58A20060F6FD /* RepositoryContainer.swift */,
+			);
+			path = Injected;
 			sourceTree = "<group>";
 		};
 		FAEFFDD62B4A7E970060F6FD /* Mocks */ = {
@@ -643,6 +646,7 @@
 				FACBC0FE2B4568DB003E5BF2 /* FirebaseDatabaseEndpoint.swift in Sources */,
 				FAEFFDBE2B47E8AB0060F6FD /* NoteModel.swift in Sources */,
 				FA6C725E2B467B9200FF1BE2 /* UserListNodeView.swift in Sources */,
+				FAEFFDD22B4A55D70060F6FD /* DependencyInjector.swift in Sources */,
 				FA6C726A2B46ABD100FF1BE2 /* AppState.swift in Sources */,
 				FACBC0E22B453B39003E5BF2 /* UserNameView.swift in Sources */,
 				FA8AACE92B4501E600194106 /* AppDelegate.swift in Sources */,
@@ -653,7 +657,7 @@
 				FACBC1002B459E15003E5BF2 /* NSDictionary+Ext.swift in Sources */,
 				FAEFFDCA2B47F1490060F6FD /* UserListNodeViewModel.swift in Sources */,
 				FA6C72582B4662C300FF1BE2 /* UserFirebaseEndpoint.swift in Sources */,
-				FA71DD382B44FAF8001AF3A4 /* ContentView.swift in Sources */,
+				FAEFFDD42B4A58A20060F6FD /* RepositoryContainer.swift in Sources */,
 				FA6C725A2B4668E000FF1BE2 /* RegisterUserUseCase.swift in Sources */,
 				FA71DD362B44FAF8001AF3A4 /* Cuong_NotesApp.swift in Sources */,
 				FACBC0F72B455541003E5BF2 /* UserModel.swift in Sources */,
