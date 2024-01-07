@@ -55,6 +55,7 @@ struct NoteCreatorView: View {
                 
             })
             .onReceive(viewModel.createNoteSuccessSubject, perform: { _ in
+                self.addNoteSuccessHandler?()
                 self.dismiss()
             })
             .alert(isPresented: $isShowingError, content: {

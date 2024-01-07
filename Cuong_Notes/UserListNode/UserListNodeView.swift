@@ -45,6 +45,7 @@ struct UserListNodeView: View {
                     viewModel.onAppear()
                 }
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
         
         @ViewBuilder

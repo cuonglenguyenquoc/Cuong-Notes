@@ -36,6 +36,12 @@ class NoteCreatorViewModel: ObservableObject, NoteCreatorViewModelInput, NoteCre
         self.userModel = userModel
     }
     
+    deinit {
+        #if DEBUG
+        print("deinit: NoteCreatorViewModel")
+        #endif
+    }
+    
     // MARK: - Inputs
     func saveNoteButtonTapped(title: String, note: String) {
         if title.isEmpty || note.isEmpty {
