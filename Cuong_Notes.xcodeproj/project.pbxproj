@@ -10,7 +10,6 @@
 		30F2FC4523739C849FB371D6 /* Pods_Cuong_NotesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E20ACBE2F2D46D1B8AB4006 /* Pods_Cuong_NotesTests.framework */; };
 		3470FF0EE7FD80CC40B4A7E2 /* Pods_Cuong_Notes_Cuong_NotesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727C6B68BADEF1747A3C8A9E /* Pods_Cuong_Notes_Cuong_NotesUITests.framework */; };
 		4A3DA27845C2616DC7499FFE /* Pods_Cuong_Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0275B24C88F0B5FCE58B9D6 /* Pods_Cuong_Notes.framework */; };
-		FA6C72532B46600800FF1BE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA6C72522B46600800FF1BE2 /* GoogleService-Info.plist */; };
 		FA6C72552B46618400FF1BE2 /* FirebaseUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72542B46618400FF1BE2 /* FirebaseUserRepository.swift */; };
 		FA6C72582B4662C300FF1BE2 /* UserFirebaseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C72572B4662C300FF1BE2 /* UserFirebaseEndpoint.swift */; };
 		FA6C725E2B467B9200FF1BE2 /* UserListNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C725D2B467B9200FF1BE2 /* UserListNodeView.swift */; };
@@ -23,6 +22,7 @@
 		FA71DD522B44FAF9001AF3A4 /* Cuong_NotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD512B44FAF9001AF3A4 /* Cuong_NotesUITests.swift */; };
 		FA71DD542B44FAF9001AF3A4 /* Cuong_NotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71DD532B44FAF9001AF3A4 /* Cuong_NotesUITestsLaunchTests.swift */; };
 		FA8AACE92B4501E600194106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8AACE82B4501E600194106 /* AppDelegate.swift */; };
+		FA8F349D2B4BDB2A0025965B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8F349C2B4BDB2A0025965B /* GoogleService-Info.plist */; };
 		FACBC0E22B453B39003E5BF2 /* UserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0E12B453B39003E5BF2 /* UserNameView.swift */; };
 		FACBC0E42B453B40003E5BF2 /* UserNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0E32B453B40003E5BF2 /* UserNameViewModel.swift */; };
 		FACBC0E72B453D1B003E5BF2 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC0E62B453D1B003E5BF2 /* Color+Ext.swift */; };
@@ -75,7 +75,6 @@
 		C0C88142A22B5142AF1EF0CB /* Pods-Cuong_NotesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cuong_NotesTests.debug.xcconfig"; path = "Target Support Files/Pods-Cuong_NotesTests/Pods-Cuong_NotesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA55C9CB0BC33C8B2BD6D669 /* Pods-Cuong_Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cuong_Notes.release.xcconfig"; path = "Target Support Files/Pods-Cuong_Notes/Pods-Cuong_Notes.release.xcconfig"; sourceTree = "<group>"; };
 		F9BA0E59159084C808E7A3C1 /* Pods-Cuong_Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cuong_Notes.debug.xcconfig"; path = "Target Support Files/Pods-Cuong_Notes/Pods-Cuong_Notes.debug.xcconfig"; sourceTree = "<group>"; };
-		FA6C72522B46600800FF1BE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA6C72542B46618400FF1BE2 /* FirebaseUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserRepository.swift; sourceTree = "<group>"; };
 		FA6C72572B4662C300FF1BE2 /* UserFirebaseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebaseEndpoint.swift; sourceTree = "<group>"; };
 		FA6C725D2B467B9200FF1BE2 /* UserListNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListNodeView.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		FA71DD512B44FAF9001AF3A4 /* Cuong_NotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuong_NotesUITests.swift; sourceTree = "<group>"; };
 		FA71DD532B44FAF9001AF3A4 /* Cuong_NotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuong_NotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA8AACE82B4501E600194106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA8F349C2B4BDB2A0025965B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FACBC0E12B453B39003E5BF2 /* UserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameView.swift; sourceTree = "<group>"; };
 		FACBC0E32B453B40003E5BF2 /* UserNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewModel.swift; sourceTree = "<group>"; };
 		FACBC0E62B453D1B003E5BF2 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 			children = (
 				FAEFFDD02B4A54770060F6FD /* Injected */,
 				FAEFFDBC2B47B9630060F6FD /* Cuong-Notes-Info.plist */,
-				FA6C72522B46600800FF1BE2 /* GoogleService-Info.plist */,
+				FA8F349C2B4BDB2A0025965B /* GoogleService-Info.plist */,
 				FACBC0FA2B45683A003E5BF2 /* Firebase */,
 				FACBC0EE2B4551A0003E5BF2 /* Domain */,
 				FACBC0EA2B4550A0003E5BF2 /* Data */,
@@ -488,8 +488,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA71DD3E2B44FAF9001AF3A4 /* Preview Assets.xcassets in Resources */,
-				FA6C72532B46600800FF1BE2 /* GoogleService-Info.plist in Resources */,
 				FA71DD3A2B44FAF9001AF3A4 /* Assets.xcassets in Resources */,
+				FA8F349D2B4BDB2A0025965B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
